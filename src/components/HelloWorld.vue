@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 
-import { v-btn }
-
 defineProps({
    msg: String,
 })
