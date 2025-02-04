@@ -15,13 +15,13 @@ import AboutView from './views/AboutView.vue'
 // Vue Router
 
 const routes = [
-   { path: '/', component: HomeView },
-   { path: '/about', component: AboutView },
+    { path: '/', component: HomeView },
+    { path: '/about', component: AboutView },
 ]
 
 const router = createRouter({
-   history: createWebHistory(),
-   routes,
+    history: createWebHistory(),
+    routes,
 })
 
 // Vuetify
@@ -31,8 +31,8 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
 const vuetify = createVuetify({
-   components,
-   directives,
+    components,
+    directives,
 })
 
 app.use(vuetify)
