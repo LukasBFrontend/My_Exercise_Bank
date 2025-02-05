@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import SearchBar from '../components/SearchBar.vue';
 
 defineProps({
    msg: String,
@@ -10,12 +11,6 @@ const count = ref(0)
 
 <template>
    <h2>About</h2>
-   <ul>
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/about">About</router-link></li>
-   </ul>
-   <v-icon icon="mdi-home" />
-   <v-btn> Button </v-btn>
 </template>
 
 <style scoped>

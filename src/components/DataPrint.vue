@@ -31,7 +31,7 @@ async function fetchExercises() {
 </script>
 
 <template>
-    <h1>DataPrint</h1>
+    <h2>Results:</h2>
     <v-list lines="two">
         <v-list-item
             v-for="exercise in exercises"
