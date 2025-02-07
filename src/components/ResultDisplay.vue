@@ -9,8 +9,8 @@ const router = useRouter()
 
 let exercises = computed(() => results.value)
 
-function redirectUser(page) {
-  router.push('/exercise')
+function redirectUser(exerciseName) {
+  router.push(`/${exerciseName}`)
 }
 </script>
 
@@ -18,7 +18,7 @@ function redirectUser(page) {
   <h2>Results:</h2>
   <v-row>
     <v-col v-for="exercise in exercises" :key="exercise" cols="4">
-      <v-card :title="exercise.name" @click="redirectUser()">
+      <v-card :title="exercise.name" @click="redirectUser(exercise.name)">
         <v-chip prepend-icon="mdi-target"> {{ exercise.muscle }} </v-chip>
         <v-chip prepend-icon="mdi-dumbbell"> {{ exercise.equipment }} </v-chip>
         <v-chip

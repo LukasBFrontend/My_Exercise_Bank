@@ -2,11 +2,16 @@
 import { ref, computed } from 'vue'
 import axios from 'axios'
 import { useResultStore } from '../store'
+import { useRoute } from 'vue-router'
 
 let results = useResultStore()
+const route = useRoute()
 
+//hitta rätt övning i pinia baserat på adressparameter
 let exercise = computed(() => {
-  return results.value[0]
+  return results.value[
+    results.value.findIndex((item) => item.name === route.params.exercise)
+  ]
 })
 </script>
 

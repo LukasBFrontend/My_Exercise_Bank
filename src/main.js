@@ -17,7 +17,7 @@ import ExerciseView from './views/ExerciseView.vue'
 const routes = [
   { path: '/', component: HomeView },
   { path: '/about', component: AboutView },
-  { path: '/exercise', component: ExerciseView },
+  { path: '/:exercise', component: ExerciseView },
 ]
 
 const router = createRouter({
