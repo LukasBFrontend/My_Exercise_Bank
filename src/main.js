@@ -10,12 +10,14 @@ const app = createApp(App)
 
 import HomeView from './views/HomeView.vue'
 import AboutView from './views/AboutView.vue'
+import ExerciseView from './views/ExerciseView.vue'
 
 // Vue Router
 
 const routes = [
   { path: '/', component: HomeView },
   { path: '/about', component: AboutView },
+  { path: '/exercise', component: ExerciseView },
 ]
 
 const router = createRouter({

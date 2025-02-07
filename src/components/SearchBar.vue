@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import axios from 'axios'
 import { useResultStore } from '../store'
 

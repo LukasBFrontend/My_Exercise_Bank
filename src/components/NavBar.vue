@@ -7,6 +7,7 @@ defineProps({})
 const pages = ref([
   { url: '/', text: 'Home' },
   { url: '/about', text: 'About' },
+  { url: '/exercise', text: 'Exercise' },
 ])
 </script>
 
