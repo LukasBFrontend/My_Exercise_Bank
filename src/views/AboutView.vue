@@ -11,6 +11,11 @@ const count = ref(0)
 
 <template>
   <h2>About</h2>
+  <p>
+    I created Exercise Bank to allow exercise enthusiasts to browse from a vast
+    array of exercises. The website provides an interface between the user and
+    Exercises API (provided by API-ninja)
+  </p>
 </template>
 
 <style scoped>

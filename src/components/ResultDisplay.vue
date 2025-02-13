@@ -1,13 +1,16 @@
 <script setup>
 import { computed, ref } from 'vue'
-import axios from 'axios'
 import { useResultStore } from '../store'
 import { useRouter } from 'vue-router'
 
-let results = useResultStore()
-const router = useRouter()
+defineProps({
+  searchQuery: String,
+})
 
+let results = useResultStore()
 let exercises = computed(() => results.value)
+
+const router = useRouter()
 
 function redirectUser(exerciseName) {
   router.push(`/${exerciseName}`)
@@ -15,7 +18,7 @@ function redirectUser(exerciseName) {
 </script>
 
 <template>
-  <h2>Results:</h2>
+  <h2>Results for "{{ searchQuery }}":</h2>
   <v-row>
     <v-col v-for="exercise in exercises" :key="exercise" cols="4">
       <v-card :title="exercise.name" @click="redirectUser(exercise.name)">

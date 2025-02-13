@@ -1,13 +1,32 @@
 <script setup>
-import { computed, ref } from 'vue'
 import axios from 'axios'
+import { watch, ref, defineEmits } from 'vue'
 import { useResultStore } from '../store'
+import { useRouter } from 'vue-router'
 
-defineProps({})
+const emit = defineEmits(['input-error'])
 
-let input = ''
+let input = ref('')
+const router = useRouter()
 const results = useResultStore()
 
+watch(input, () => {
+  let regex = /\d/
+  console.log(input.value)
+  if (!regex.test(input.value)) {
+    emit('input-changed', { isValidInput: true })
+  } else {
+    emit('input-changed', { isValidInput: false })
+  }
+})
+
+function onSearch(query) {
+  updatePath(query)
+  fetchExercises(query)
+}
+function updatePath(query) {
+  router.push({ path: '/', query: { search: query } })
+}
 async function fetchExercises(query) {
   try {
     const response = await axios.get(
@@ -18,9 +37,7 @@ async function fetchExercises(query) {
         },
       }
     )
-
     results.set(response.data)
-    console.log(results.value)
   } catch (error) {
     console.error(error)
   }
@@ -30,7 +47,7 @@ async function fetchExercises(query) {
 <template>
   <v-text-field label="Find your exercise..." v-model="input">
     <template v-slot:append>
-      <v-btn icon @click="fetchExercises(input)" class="search-btn">
+      <v-btn icon @click="onSearch(input)" class="search-btn">
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
     </template>
