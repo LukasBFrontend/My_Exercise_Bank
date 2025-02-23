@@ -27,6 +27,7 @@ function onSearch(query) {
 function updatePath(query) {
   router.push({ path: '/', query: { search: query } })
 }
+
 async function fetchExercises(query) {
   try {
     const response = await axios.get(
