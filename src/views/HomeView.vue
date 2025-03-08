@@ -16,14 +16,35 @@ function onInputChanged(payload) {
 
 <template>
   <h2>Home</h2>
-  <v-img :width="300" :aspect-ratio="1.7" cover src="/equipment.jpg"></v-img>
+  <v-img
+    id="image"
+    :width="650"
+    :aspect-ratio="1.7"
+    cover
+    src="/equipment.jpg"
+    alt="a pair of dumbells"
+  >
+    <div class="fill-height gradient"></div>
+  </v-img>
   <search-bar @input-changed="onInputChanged"></search-bar>
   <error-display :show-input-error="showInputError"></error-display>
   <result-display :search-query="route.query.search"></result-display>
 </template>
 
 <style scoped>
+.gradient {
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.45) 0%,
+      transparent 30%
+    ),
+    linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, transparent 30%);
+}
 .read-the-docs {
   color: #888;
+}
+#image {
+  margin: 1rem auto;
+  border-radius: 8px;
 }
 </style>

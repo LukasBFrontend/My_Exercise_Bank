@@ -3,12 +3,19 @@ import axios from 'axios'
 import { watch, ref, defineEmits } from 'vue'
 import { useResultStore } from '../store'
 import { useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 
-const emit = defineEmits(['input-error'])
+const emit = defineEmits(['input-changed'])
 
 let input = ref('')
 const router = useRouter()
 const results = useResultStore()
+const route = useRoute()
+
+if (route.fullPath == '/') {
+  updatePath('bicep')
+  fetchExercises('bicep')
+}
 
 watch(input, () => {
   let regex = /\d/
