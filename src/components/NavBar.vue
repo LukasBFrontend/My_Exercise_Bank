@@ -1,9 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import currentDevice from '../script/logic.js'
 
 defineProps({})
 
 //manuellt inskrvna sidlänkar
+const device = currentDevice()
+
 const pages = ref([
   { url: '/', text: 'Home' },
   { url: '/about', text: 'About' },
@@ -14,7 +17,7 @@ const pages = ref([
 <template>
   <v-toolbar>
     <v-toolbar-title>Exercise Bank</v-toolbar-title>
-    <v-menu>
+    <v-menu v-if="device == 'phone'">
       <!-- knapp -->
       <template v-slot:activator="{ props }">
         <v-app-bar-nav-icon v-bind="props"></v-app-bar-nav-icon>
@@ -37,6 +40,12 @@ const pages = ref([
         </v-list-item>
       </v-list>
     </v-menu>
+
+    <template v-slot:extension v-if="device !== 'phone'">
+      <v-tabs>
+        <v-tab v-for="(page, i) in pages" :key="i" :text="page.text"></v-tab>
+      </v-tabs>
+    </template>
   </v-toolbar>
 </template>
 

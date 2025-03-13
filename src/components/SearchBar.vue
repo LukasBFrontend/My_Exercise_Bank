@@ -8,6 +8,7 @@ import { useRoute } from 'vue-router'
 const emit = defineEmits(['input-changed'])
 
 let input = ref('')
+
 const router = useRouter()
 const results = useResultStore()
 const route = useRoute()
