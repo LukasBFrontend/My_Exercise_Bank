@@ -14,3 +14,6 @@ to make a sound choice without some form of guidance. As such my application aim
 *_An exercise program is a plan and/or schedule detailing what exercises are to be done what days, with what intensity etc._
 
 ## API
+
+- My Exercise Bank uses the **Exercises API** provided by API-ninjas: [https://api.api-ninjas.com/v1/exercises](https://www.api-ninjas.com/api/exercises)
+- The free plan of API-ninjas has certain limitations which you can read about here: https://www.api-ninjas.com/pricing
