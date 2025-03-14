@@ -15,7 +15,6 @@ function onInputChanged(payload) {
 </script>
 
 <template>
-  <h2>Home</h2>
   <v-img
     id="image"
     :width="650"
@@ -31,20 +30,4 @@ function onInputChanged(payload) {
   <result-display :search-query="route.query.search"></result-display>
 </template>
 
-<style scoped>
-.gradient {
-  background-image: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0.45) 0%,
-      transparent 30%
-    ),
-    linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, transparent 30%);
-}
-.read-the-docs {
-  color: #888;
-}
-#image {
-  margin: 1rem auto;
-  border-radius: 8px;
-}
-</style>
+<style scoped></style>

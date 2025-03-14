@@ -1,22 +1,21 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 import currentDevice from '../script/logic.js'
 
-defineProps({})
+const device = currentDevice()
+const tab = ref(null)
 
 //manuellt inskrvna sidlänkar
-const device = currentDevice()
-
 const pages = ref([
   { url: '/', text: 'Home' },
   { url: '/about', text: 'About' },
-  { url: '/exercise', text: 'Exercise' },
+  { url: '/program', text: 'My Program' },
 ])
 </script>
 
 <template>
   <v-toolbar>
-    <v-toolbar-title>Exercise Bank</v-toolbar-title>
+    <v-toolbar-title>Mv Exercise Bank</v-toolbar-title>
     <v-menu v-if="device == 'phone'">
       <!-- knapp -->
       <template v-slot:activator="{ props }">
@@ -41,12 +40,23 @@ const pages = ref([
       </v-list>
     </v-menu>
 
+    <!-- replace v-tabs with some other vuetify component -->
     <template v-slot:extension v-if="device !== 'phone'">
-      <v-tabs>
-        <v-tab v-for="(page, i) in pages" :key="i" :text="page.text"></v-tab>
+      <v-tabs v-model="tab">
+        <v-tab
+          v-for="(page, i) in pages"
+          :key="i"
+          :text="page.text"
+          :href="page.url"
+        >
+        </v-tab>
       </v-tabs>
     </template>
   </v-toolbar>
 </template>
 
-<style scoped></style>
+<style scoped>
+.v-toolbar-title {
+  font-size: 2rem;
+}
+</style>

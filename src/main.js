@@ -11,12 +11,14 @@ const app = createApp(App)
 import HomeView from './views/HomeView.vue'
 import AboutView from './views/AboutView.vue'
 import ExerciseView from './views/ExerciseView.vue'
+import ProgramView from './views/ProgramView.vue'
 
 // Vue Router
 
 const routes = [
   { path: '/', component: HomeView },
   { path: '/about', component: AboutView },
+  { path: '/program', component: ProgramView },
   { path: '/:exercise', component: ExerciseView },
 ]
 

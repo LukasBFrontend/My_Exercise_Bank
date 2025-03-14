@@ -16,6 +16,16 @@ let exercise = computed(() => {
 </script>
 
 <template>
+  <v-img
+    id="image"
+    :width="650"
+    :aspect-ratio="1.7"
+    cover
+    src="/equipment.jpg"
+    alt="a pair of dumbells"
+  >
+    <div class="fill-height gradient"></div>
+  </v-img>
   <v-container>
     <v-card :title="exercise.name" :text="exercise.instructions">
       <v-chip prepend-icon="mdi-target"> {{ exercise.muscle }} </v-chip>

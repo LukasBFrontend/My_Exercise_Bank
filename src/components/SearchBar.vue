@@ -30,6 +30,7 @@ watch(input, () => {
 
 function onSearch(query) {
   updatePath(query)
+  results.value = null
   fetchExercises(query)
 }
 function updatePath(query) {
@@ -46,7 +47,7 @@ async function fetchExercises(query) {
         },
       }
     )
-    results.set(response.data)
+    results.value = response.data
   } catch (error) {
     console.error(error)
   }
@@ -54,7 +55,11 @@ async function fetchExercises(query) {
 </script>
 
 <template>
-  <v-text-field label="Find your exercise..." v-model="input">
+  <v-text-field
+    v-on:keyup.enter="onSearch(input)"
+    label="Find your exercise..."
+    v-model="input"
+  >
     <template v-slot:append>
       <v-btn icon @click="onSearch(input)" class="search-btn">
         <v-icon>mdi-magnify</v-icon>

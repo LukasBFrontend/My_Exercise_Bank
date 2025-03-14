@@ -7,13 +7,12 @@ const links = ['Home', 'About Us']
 </script>
 
 <template>
-  <v-footer class="bg-grey-lighten-1">
+  <v-footer class="bg-grey-lighten-4">
     <v-row justify="center" no-gutters>
       <v-btn
         v-for="link in links"
         :key="link"
         class="mx-2"
-        color="white"
         rounded="xl"
         variant="text"
       >
@@ -26,4 +25,8 @@ const links = ['Home', 'About Us']
   </v-footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+.v-footer {
+  padding-top: 3rem;
+}
+</style>
